@@ -40,7 +40,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Change work directory to add novnc files
 WORKDIR /root/
-RUN git clone https://github.com/novnc/noVNC /root/novnc
+ADD noVNC-0.6.2 /root/novnc/
 RUN ln -s /root/novnc/vnc_auto.html /root/novnc/index.html 
 
 # Set up start up scripts
