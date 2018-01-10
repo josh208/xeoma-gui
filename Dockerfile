@@ -44,9 +44,9 @@ ADD noVNC-0.6.2 /root/novnc/
 RUN ln -s /root/novnc/vnc_auto.html /root/novnc/index.html 
 
 # Set up start up scripts
- RUN mkdir -p /etc/service/xeoma/run
- RUN curl -o /etc/service/xeoma/run/xeoma.sh https://raw.githubusercontent.com/josh208/xeoma-gui/master/xeoma.sh
- RUN chmod +x /etc/service/xeoma/run/xeoma.sh
+ RUN mkdir -p /etc/service/xeoma/run && \
+ 	curl -o /etc/service/xeoma/run/xeoma.sh https://raw.githubusercontent.com/josh208/xeoma-gui/master/xeoma.sh && \
+	chmod +x /etc/service/xeoma/run/xeoma.sh
 
  VOLUME /usr/local/Xeoma
 
