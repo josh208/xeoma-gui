@@ -2,7 +2,7 @@
 FROM phusion/baseimage:0.9.22
 MAINTAINER Josh McAllister <"josh208@gmail.com">
 
-CMD ["/sbin/my_init"]
+CMD ["/usr/bin/supervisord"]
 
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
@@ -44,9 +44,8 @@ ADD noVNC-0.6.2 /root/novnc/
 RUN ln -s /root/novnc/vnc_auto.html /root/novnc/index.html 
 
 # Set up start up scripts
- RUN mkdir -p /etc/service/xeoma && \
- 	curl -o /etc/service/xeoma/run https://raw.githubusercontent.com/josh208/xeoma-gui/master/xeoma.sh && \
-	chmod +x /etc/service/xeoma/run
+ RUN curl -o /root/xeoma.sh https://raw.githubusercontent.com/josh208/xeoma-gui/master/xeoma.sh && \
+	chmod +x /root/xeoma.sh
 
  VOLUME /usr/local/Xeoma
 
